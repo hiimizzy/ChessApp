@@ -58,5 +58,5 @@ export const isValidMove = (
     );
   }
   
-  return true; // Para outras peças (implementar regras completas depois)
+  return true; 
 };

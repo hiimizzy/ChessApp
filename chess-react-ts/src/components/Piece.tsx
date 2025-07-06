@@ -1,7 +1,19 @@
 import React from 'react';
-import { Piece } from '../lib/type';
+import { Piece as PieceType } from '../lib/type'; // Altere a importação
 
-const getPieceUnicode = (piece: Piece) => {
+// Renomeie a interface
+interface ChessPieceProps {
+  piece: PieceType;
+}
+
+// Renomeie o componente para ChessPiece
+const ChessPiece: React.FC<ChessPieceProps> = ({ piece }) => (
+  <div className="piece" style={{ fontSize: '40px' }}>
+    {getPieceUnicode(piece)}
+  </div>
+);
+
+const getPieceUnicode = (piece: PieceType) => {
   const { type, color } = piece;
   const pieces = {
     white: {
@@ -24,14 +36,4 @@ const getPieceUnicode = (piece: Piece) => {
   return pieces[color][type];
 };
 
-interface PieceProps {
-  piece: Piece;
-}
-
-const Piece: React.FC<PieceProps> = ({ piece }) => (
-  <div className="piece" style={{ fontSize: '40px' }}>
-    {getPieceUnicode(piece)}
-  </div>
-);
-
-export default Piece;
+export default ChessPiece; // Exporte com o novo nome

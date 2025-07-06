@@ -1,16 +1,18 @@
 import React from 'react';
 import Square from './Square';
-import { Board, Position } from '../lib/type';
+import { Board as BoardType, Position } from '../lib/type'; // Altere o nome na importação
 import { isValidMove } from '../lib/rules';
 
-interface BoardProps {
-  board: Board;
+// Mude o nome da interface também
+interface ChessBoardProps {
+  board: BoardType;
   selectedPosition: Position | null;
   validMoves: Position[];
   onSquareClick: (position: Position) => void;
 }
 
-const Board: React.FC<BoardProps> = ({
+// Renomeie o componente para ChessBoard
+const ChessBoard: React.FC<ChessBoardProps> = ({
   board,
   selectedPosition,
   validMoves,
@@ -47,4 +49,4 @@ const Board: React.FC<BoardProps> = ({
   );
 };
 
-export default Board;
+export default ChessBoard; // Exporte com o novo nome
